@@ -26,8 +26,8 @@
                                 placeholder="Buscar pokemon específico" aria-label="search"
                                 aria-describedby="basic-addon2">
                             <div class="input-group-append">
-                                <button v-show="!searchFiltered && searchValue.length > 2" class="btn btn-outline-light"
-                                    @click="search()" type="button">Buscar</button>
+                                <button v-show="searchValue.length > 2" class="btn btn-outline-light" @click="search()"
+                                    type="button">Buscar</button>
                                 <button v-show="searchFiltered" class="btn btn-outline-light" @click="clearSearch()"
                                     type="button">Limpar</button>
                             </div>

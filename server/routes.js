@@ -12,7 +12,7 @@ exports.pokemon = function (req, res) {
 exports.pokemons = function (req, res) {
     return new Promise((resolve, reject) => {
 
-        let size = req.param('size');
+        let size = req.params.size;
 
         const options = {
             hostname: 'api.pokemontcg.io',

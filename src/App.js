@@ -47,7 +47,7 @@ let pokemonlist = {
             if ((value || value !== '') && this.list) {
 
                 let result = this.list.filter((card) => {
-                    return card.name.toLowerCase() === value.toLowerCase()
+                    return card.name.toLowerCase().indexOf(value.toLowerCase()) !== -1
                 });
 
                 if (result.length >= 1) {
