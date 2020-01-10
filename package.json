@@ -1,0 +1,43 @@
+{
+  "name": "pokemon",
+  "version": "1.0.0",
+  "description": "- Implementar um web app que consuma a [API Pokemon TCG](https://pokemontcg.io) utilizando Angular. - A aplicação deve possuir 2 páginas:     - Página com lista somente das cartas Pokemon:         - Imagem da carta         - Nome do Pokemon         - ID do Pokemon         - Tipo(s)     - Páginas de detalhes da carta de Pokemon         - Imagem em alta definição         - Nome         - ID do Pokemon         - Tipo(s)         - Lista de ataques com:             - Custo de \"mana\"             - Nome             - Dano             - Descrição         - Resistencia(s)         - Fraqueza(s)",
+  "main": "index.js",
+  "scripts": {
+    "server": "node -r esm server.js",
+    "build": "webpack",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "autoprefixer": "^9.7.3",
+    "body-parser": "^1.19.0",
+    "bootstrap": "^4.4.1",
+    "css-loader": "^3.4.1",
+    "exports-loader": "^0.7.0",
+    "express": "^4.17.1",
+    "node-sass": "^4.13.0",
+    "postcss-loader": "^3.0.0",
+    "sass-loader": "^8.0.0",
+    "style-loader": "^1.1.2",
+    "uglifyjs-webpack-plugin": "^2.2.0",
+    "vue": "^2.6.11",
+    "vue-router": "^3.1.3",
+    "vuex": "^3.1.2",
+    "webpack": "^4.41.5"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.7.7",
+    "@babel/preset-env": "^7.7.7",
+    "@babel/register": "^7.7.7",
+    "esm": "^3.2.25",
+    "extract-text-webpack-plugin": "^3.0.2",
+    "extracted-loader": "^1.0.7",
+    "mini-css-extract-plugin": "^0.9.0",
+    "script-loader": "^0.7.2",
+    "uglify-loader": "^3.0.0",
+    "webpack-cli": "^3.3.10"
+  }
+}

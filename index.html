@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="/dist/main.css">
+
+    <script src="/dist/bundle-libs.js"></script>
+</head>
+
+<body>
+
+    <div id="app" class="jumbotron">
+        <pokemonlist inline-template>
+            <div class="container">
+
+                <nav class="row navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
+                    <a class="navbar-brand col-xs-12 col-sm-2" href="/" @click="clearStore()">Pokedex</a>
+                    <div class="col-xs-12 col-sm-9 row">
+                        <div class="input-group justify-content-end">
+                            <input type="text" class="form-control" v-model="searchValue"
+                                placeholder="Buscar pokemon específico" aria-label="search"
+                                aria-describedby="basic-addon2">
+                            <div class="input-group-append">
+                                <button v-show="!searchFiltered && searchValue.length > 2" class="btn btn-outline-light"
+                                    @click="search()" type="button">Buscar</button>
+                                <button v-show="searchFiltered" class="btn btn-outline-light" @click="clearSearch()"
+                                    type="button">Limpar</button>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+
+                <div class="row alert alert-warning" role="alert" v-if="!searchResults">
+                    <p>Nenhum resultado encontrado para sua busca</p>
+                </div>
+
+                <router-view></router-view>
+
+                <ul class="row cardsList">
+                    <li v-for="card in filtered" class="col-xs-12 col-sm-6 col-lg-4">
+                        <ul :id="card.id" class="pokemon-card">
+                            <li @click="openPage(card)">
+                                <img v-lazyload :data-src='card.image' :alt='card.name' :title='card.name' />
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+
+            </div>
+        </pokemonlist>
+
+    </div>
+
+    <script defer src="/dist/bundle.js"></script>
+</body>
+
+</html>
