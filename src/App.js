@@ -37,6 +37,7 @@ let pokemonlist = {
         clearSearch: function () {
             this.filtered = this.list;
             this.searchFiltered = false;
+            store.commit('setFiltered', false);
         },
         clearStore: function () {
             store.commit('setCard', null);
@@ -47,7 +48,7 @@ let pokemonlist = {
             if ((value || value !== '') && this.list) {
 
                 let result = this.list.filter((card) => {
-                    return card.name.toLowerCase().indexOf(value.toLowerCase()) !== -1
+                    return card.name.toLowerCase().match(new RegExp(`^${value.toLowerCase()}`, 'ig')) !== null;
                 });
 
                 if (result.length >= 1) {
@@ -58,11 +59,8 @@ let pokemonlist = {
                     this.searchResults = true;
                     return;
                 }
-
-                store.commit('setFiltered', false);
-
-                this.searchFiltered = false;
                 this.searchResults = false;
+                this.clearSearch()
             }
         },
         scrollTop: function () {
@@ -74,6 +72,8 @@ let pokemonlist = {
         },
         openPage: function (card) {
             store.commit('setCard', card);
+            store.commit('setFiltered', false);
+
             localStorage.setItem('pokemonPage', JSON.stringify(card));
             router.push({ path: `/pokemon/${card.name}` });
             this.scrollTop();
